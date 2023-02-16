@@ -22,7 +22,7 @@ int main()
 		cout << "3.Закрыть программу\n";
 		cin >> choice;//Переменная выбора пользователя
 		system("CLS");
-		switch (choice) //В зависимости от выбора выполняется соответсвующая функция
+		switch (choice) //В зависимости от выбора выполняется соответствующая функция
 		{
 			case 1: firstfunction(); break;
 			case 2: Array(); break;
@@ -34,7 +34,7 @@ int main()
 		cout << "\n";
 	}
 }
-void firstfunction() 
+void firstfunction() // Функция с использованием глобальных переменных
 {
 	cout << "Введите первое число:";  cin >> a;
 	cout << "Введите второе число:";  cin >> b;
@@ -47,13 +47,13 @@ void firstfunction()
 	cout << "\n";
 	cout << "\n";
 }
-int sum(unsigned long int* pa, int* pb)
+int sum(unsigned long int* pa, int* pb) //Функция с использованем указателей
 {
 	int c;
 	c = (*pa) + (*pb);
 	return c;
 }
-void Array()
+void Array() //Функция ввода масива и поиска минимального элемента
 {
 	cout << "Введите элементы массива:\n";
 	for (int i = 0; i < 5; i++)
