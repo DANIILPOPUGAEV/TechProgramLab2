@@ -1,13 +1,13 @@
 ﻿// TechProgramLab2.cpp : Этот файл содержит функцию "main". Здесь начинается и заканчивается выполнение программы.
 //
 #include <iostream>
-#include "Function1.h"
-#include "Function2.h"
 using namespace std;
 unsigned long int a;
 int b;
-void firstfunction();
-void Array();
+signed long int arr[5];
+void firstfunction();//Объявление функции firstfunction
+void Array();//Объявление функции Array
+int  sum(unsigned long int* pa, int* pb);//Объявление функции sum
 
 int main()
 {
@@ -20,9 +20,9 @@ int main()
 		cout << "1.Выполнить задание №1\n";
 		cout << "2.Выполнить задание №2\n";
 		cout << "3.Закрыть программу\n";
-		cin >> choice;
+		cin >> choice;//Переменная выбора пользователя
 		system("CLS");
-		switch (choice)
+		switch (choice) //В зависимости от выбора выполняется соответсвующая функция
 		{
 			case 1: firstfunction(); break;
 			case 2: Array(); break;
@@ -33,6 +33,40 @@ int main()
 		}
 		cout << "\n";
 	}
+}
+void firstfunction() 
+{
+	cout << "Введите первое число:";  cin >> a;
+	cout << "Введите второе число:";  cin >> b;
+	int result = sum(&a, &b);
+	cout << "Результат = " << (double)result << "\n";
+	cout << "Размер памяти: " << sizeof(result) << " byte\n";
+	cout << "---------------------------------\n";
+	cout << "Приведём к новому типу (double):\n";
+	cout << "Размер памяти:  " << sizeof((double)(result)) << " byte\n";
+	cout << "\n";
+	cout << "\n";
+}
+int sum(unsigned long int* pa, int* pb)
+{
+	int c;
+	c = (*pa) + (*pb);
+	return c;
+}
+void Array()
+{
+	cout << "Введите элементы массива:\n";
+	for (int i = 0; i < 5; i++)
+	{
+		cin >> arr[i];
+	}
+	signed long int min = 2147483647;
+	for (int i = 0; i < 5; i++)
+	{
+		if (arr[i] < min)
+			min = arr[i];
+	}
+	cout << "Минимальный элемент массива: " << min << "\n";
 }
 
 
